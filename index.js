@@ -2,9 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const config = require("./config/index");
-const routes = require("./routes/index");
-
-config();
+const routes = require("./routes");
 
 const app = express();
 
@@ -21,6 +19,7 @@ mongoose.connect(
     if (err) {
       console.log("There is an ERROR in connecting to mongoDB");
     }
+    console.log("Connected to Database");
   }
 );
 
