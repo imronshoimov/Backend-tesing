@@ -4,7 +4,7 @@ const code = require("../config/status");
 class UserController {
   async insert(req, res) {
     try {
-      const key = ["firstName", "lastName", "age"];
+      const key = ["firstName", "lastName"];
 
       for (let item of key) {
         if (!req.body[item]) {
@@ -76,7 +76,7 @@ class UserController {
 
   async update(req, res) {
     try {
-      const key = ["firstName", "lastName", "age"];
+      const key = ["firstName", "lastName"];
 
       if (!req.params.id) {
         res.status(400).json({

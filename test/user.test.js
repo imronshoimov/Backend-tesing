@@ -53,18 +53,5 @@ describe("User", () => {
           expect(err).to.equal(null);
         });
     });
-
-    it("should return required if age does not exists", () => {
-      const example = { ...exampleUser };
-      delete example.age;
-      chai
-        .request(server)
-        .post("/user")
-        .send(example)
-        .end((err, response) => {
-          expect(response.body.message).includes("age is required");
-          expect(err).to.equal(null);
-        });
-    });
   });
 });
