@@ -54,4 +54,45 @@ describe("User", () => {
         });
     });
   });
+
+  describe("Update User", () => {
+    const userId = "da206b3e-b951-4010-bfdb-c91231ac7722";
+    it("should update user", () => {
+      const example = { ...exampleUser };
+      chai
+        .request(server)
+        .put("/user/" + userId)
+        .send(example)
+        .end((err, response) => {
+          expect(err).to.equal(null);
+          expect(typeof response.body.data).to.equal("object");
+        });
+    });
+
+    it("should return required if firstname does not exists", () => {
+      const example = { ...exampleUser };
+      delete example.firstName;
+      chai
+        .request(server)
+        .put("/user/" + userId)
+        .send(example)
+        .end((err, response) => {
+          expect(response.body.message).includes("firstName is required");
+          expect(err).to.equal(null);
+        });
+    });
+
+    it("should return required if lastname does not exists", () => {
+      const example = { ...exampleUser };
+      delete example.lastName;
+      chai
+        .request(server)
+        .put("/user/" + userId)
+        .send(example)
+        .end((err, response) => {
+          expect(response.body.message).includes("lastName is required");
+          expect(err).to.equal(null);
+        });
+    });
+  });
 });

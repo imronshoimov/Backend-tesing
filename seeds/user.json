@@ -1,0 +1,11 @@
+{
+  "collectionName": "User",
+  "modelFile": "User.js",
+  "data": {
+    "_id": "da206b3e-b951-4010-bfdb-c91231ac7722",
+    "firstName": "bla",
+    "lastName": "blabla",
+    "age": 18,
+    "gender": "male"
+  }
+}

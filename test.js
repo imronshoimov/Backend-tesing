@@ -1,7 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const mongoose = require("mongoose");
-const config = require("./config/index");
 const routes = require("./routes");
 
 const app = express();
@@ -9,22 +7,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(
-  config.MONGO_URL,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) {
-      console.log("There is an ERROR in connecting to mongoDB");
-    }
-    console.log("Connected to Database");
-  }
-);
-
 app.use(routes);
 
-module.exports = app.listen(config.PORT, () => {
-  console.log("Server is running on http://localhost:" + config.PORT);
-});
+module.exports = app;
