@@ -141,4 +141,29 @@ describe("User", () => {
         });
     });
   });
+
+  describe("Delete User", () => {
+    const userId = "da206b3e-b951-4010-bfdb-c91231ac7722";
+    it("should delete user", () => {
+      chai
+        .request(server)
+        .delete("/user/" + userId)
+        .end((err, response) => {
+          expect(err).to.equal(null);
+          expect(typeof response.body.data).to.equal("object");
+          expect(response.body.data._id).to.equal(userId);
+        });
+    });
+
+    it("should return not found if id is invalid", () => {
+      chai
+        .request(server)
+        .delete("/user/" + "sss")
+        .end((err, response) => {
+          expect(err).to.equal(null);
+          expect(response.body.code).to.equal("NOT_FOUND");
+          expect(response.body.message).to.equal("User not found");
+        });
+    });
+  });
 });
