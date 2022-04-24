@@ -4,7 +4,7 @@ const ctrl = new UserController();
 
 router.post("/user", ctrl.insert);
 router.get("/user/:id", ctrl.get);
-router.get("/user", ctrl.getAll);
+router.get("/users", ctrl.getAll);
 router.put("/user/:id", ctrl.update);
 router.delete("/user/:id", ctrl.delete);
 
