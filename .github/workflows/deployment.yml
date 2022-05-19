@@ -16,6 +16,6 @@ jobs:
       - run: npm run test
       - uses: JamesIves/github-pages-deploy-actions@release/v3
         with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: .
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .
