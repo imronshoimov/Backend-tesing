@@ -14,7 +14,7 @@ jobs:
           node-version: 12
       - run: npm start
       - run: npm run test
-      - uses: JamesIves/github-pages-deploy-actions@release/v3
+      - uses: imronshoimov/Backend-testing
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
