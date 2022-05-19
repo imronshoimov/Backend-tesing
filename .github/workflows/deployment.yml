@@ -11,7 +11,7 @@ jobs:
       - users: actions/checkout@v2
       - users: actions/setup-node@v1
         with:
-          node-version: 14.16.1
+          node-version: 12
       - run: npm start
       - run: npm run test
       - uses: JamesIves/github-pages-deploy-actions@release/v3
